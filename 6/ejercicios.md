@@ -18,21 +18,23 @@ addu $v0, $v0, $t0
 ### Escriba el código necesario para inicializar una variable reloj con el valor 21:15:45 e incrementarlo en tres horas y 40 segundos. Use lasrubrutinas inicializa_reloj, pasa_hora y pasa_segundo. ¿Cuál es el valor final del reloj?
 
 ´´´
-        la $a0, reloj
+    la $a0, reloj
 
-        li $a1, 0x00150F2D
-        jal inicializa_reloj
+    li $a1, 0x00150F2D
+    jal inicializa_reloj
 
-        la $a0, reloj
-        jal pasa_hora
+    la $a0, reloj
+    jal pasa_hora
 
-        li $v1, 40
-bucle:  jal pasa_segundo
-        addi $v1, $v1, -1 
-        bgtz $v1, bucle
+    li $v1, 40
+    bucle:  
+    jal pasa_segundo
+    addi $v1, $v1, -1 
+    bgtz $v1, bucle
 
-        la $a0, reloj
-        jal imprime_reloj
+    la $a0, reloj
+    jal imprime_reloj
+
 ´´´
 
 El valor final del reloj será: 22:16:25 (1h y 40 segundos más tarde de la inicial)
